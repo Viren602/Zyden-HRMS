@@ -10,15 +10,14 @@ const Layout = (props) => {
   return (
     <div>
       <div className="h-screen overflow-hidden">
-        <Header setSidebarOpen={setSidebarOpen} />
-
-        <div className="project-pages flex">
-          <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+        <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+        <div className="project-pages">
+          <Header setSidebarOpen={setSidebarOpen} />
           <div
             className="pagescreen relative flex-1 overflow-hidden overflow-y-auto w-full pt-[15px]"
-            style={{ height: "calc(100vh - 90px)" }}
+            style={{ height: "calc(100vh - 10px)" }}
           >
-            <Breadcrumb componentRoutes={props.componentRoutes} />
+            {/* <Breadcrumb componentRoutes={props.componentRoutes} /> */}
             <Outlet />
           </div>
         </div>

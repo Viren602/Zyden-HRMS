@@ -12,8 +12,7 @@ const customStyles = {
         minHeight: "38px",
         "&:hover": { border: "1px solid #d2d2d2" },
         ...(state.isFocused && {
-            outline: "1px solid #704f38",
-            border: "1px solid #704f38",
+            border: "1px solid #2563eb1a",
         }),
     }),
     valueContainer: (base) => ({

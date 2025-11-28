@@ -1,0 +1,482 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "~@flaticon/flaticon-uicons/css/regular/rounded";
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/@flaticon/flaticon-uicons/css/all/all.css");
+
+body {
+  font-family: "Outfit", sans-serif;
+}
+
+.text-black {
+  color: #333;
+}
+.text-blue {
+  color: #2563eb;
+}
+.bg-lightblue {
+  background: #2563eb1a;
+}
+
+.display {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 48px;
+}
+
+.heading {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+.body-text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+@media screen and (max-width: 1024px) {
+  .display {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 36px;
+  }
+
+  .heading {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+  }
+
+  .body-text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+  }
+}
+
+/* For vertical scrollbars */
+.scrollbar-custom::-webkit-scrollbar {
+  width: 8px; /* Width of scrollbar */
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: #f3f3f3; /* Track color */
+  border-radius: 8px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background-color: #a0522d; /* Thumb color (brown) */
+  border-radius: 8px;
+  border: 2px solid #f3f3f3; /* Optional padding around thumb */
+}
+
+/* For Firefox */
+.scrollbar-custom {
+  scrollbar-width: thin;
+  scrollbar-color: lightblue #f3f3f3;
+}
+
+/* -------button -------- */
+.prm-btn {
+  height: 36px;
+  width: 67px;
+  color: white;
+  background-color: green;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.secondary-btn {
+  height: 36px;
+  width: 81px;
+  color: white;
+  background-color: red;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.sidebar-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width 0.3s ease, opacity 0.25s ease, transform 0.25s ease;
+}
+
+.sidebar-text.open {
+  max-width: 200px;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.sidebar-text.closed {
+  max-width: 0;
+  opacity: 0;
+  transform: translateX(-8px);
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+  padding: 10px 17px !important;
+  font-size: 14px;
+}
+
+/* Remove number input arrows in Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove number input arrows in Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Weekday name (Sun, Mon, Tue...) */
+.rbc-header {
+  color: #6b7280 !important; /* gray-500 */
+  font-weight: 400 !important; /* normal weight */
+  padding: 6px 6px !important;
+}
+
+/* Day number left aligned */
+.rbc-date-cell {
+  text-align: left !important;
+  /* padding: 5px !important; */
+  font-size: 13px;
+  height: 0;
+}
+
+/* Dates outside the current month (26–31 or 1–previous/next month) */
+.rbc-off-range-bg {
+  background-color: #fcfcfc !important; /* gray-100 */
+}
+
+.rbc-day-bg {
+  position: relative; /* Needed for absolute positioning of ::after */
+}
+
+.rbc-day-bg:hover {
+  background-color: #f9fafc;
+  cursor: pointer;
+}
+
+.rbc-day-bg:hover::after {
+  content: "+";
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 30px; /* Width of the little box */
+  height: 30px; /* Height of the little box */
+  background-color: white; /* White background */
+  border: 1px solid #bcbfc5; /* Gray border */
+  border-radius: 5px; /* Make it circular */
+  font-size: 12px;
+  color: #9ba0a9;
+  text-align: center;
+  line-height: 18px;
+  pointer-events: none;
+}
+
+.rbc-day-bg:hover::after {
+  font-size: 25px; /* Bigger + inside */
+  line-height: 27px; /* Vertically center the + */
+}
+
+/* -------- scrollbar -------- */
+
+/* Thin Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1; /* slate-300 */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8; /* slate-400 */
+}
+
+/* ---------- Invoice CSS ---------- */
+.invoice-page {
+  /* width: 210mm;
+  height: 297mm; */
+  padding: 20px;
+}
+
+.invoice-page .invoice-header .invoice-head {
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+}
+
+.invoice-page .invoice-header .invoice-head img {
+  width: 100px;
+  height: 40px;
+  margin-top: 40px;
+}
+
+.invoice-page .invoice-header .invoice-head h1 {
+  margin-top: 45px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #0b324b;
+}
+
+.invoice-page .invoice-header .invoice-details table {
+  margin-top: 45px;
+}
+
+.invoice-page .invoice-header .invoice-details table tbody tr td:first-child {
+  width: 55%;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #5a5a5a;
+}
+
+.invoice-page .invoice-header .invoice-details table tbody tr td {
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0%;
+  line-height: 100%;
+  color: #5a5a5a;
+}
+
+.invoice-page .invoice-header .invoice-details-table table {
+  text-align: left;
+  margin-top: 35px;
+  width: 100%;
+}
+
+.invoice-page .invoice-header .invoice-details-table table tbody tr td {
+  color: #353839;
+  font-size: 13px;
+  width: 40%;
+}
+
+.invoice-page .invoice-header .invoice-details-table table tbody tr td p {
+  width: 70%;
+  color: #353839;
+}
+
+.invoice-page .invoice-header .invoice-details-table table tbody tr td h2 {
+  color: #414a4c;
+  font-weight: 600;
+}
+
+.invoice-page .invoice-header .invoice-details-table table tbody tr td h3 {
+  color: #5a5a5a;
+  margin: 9px 0px;
+  font-weight: 600;
+}
+
+.invoice-page .invoice-mid {
+  margin-top: 40px;
+  width: 100%;
+}
+
+.invoice-page .invoice-mid .invoice-table table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+.invoice-page .invoice-mid .invoice-table table thead tr th {
+  color: #353839;
+  border-top: 2px solid #414a4c;
+  border-bottom: 2px solid #414a4c;
+  border-left: none;
+  border-right: none;
+  padding: 7px;
+  font-weight: 600;
+  font-size: 15px;
+  width: 25%;
+}
+
+.invoice-page .invoice-mid .invoice-table table tbody tr td {
+  color: #5a5a5a;
+  border-bottom: 2px solid #dddddd;
+  padding: 7px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.invoice-page .invoice-mid .invoice-table table .invoice-total tr th {
+  border: none;
+}
+
+.invoice-page .invoice-bottom .invoice-bottom-details {
+  margin-top: 45px;
+  width: 100%;
+}
+
+.invoice-page .invoice-bottom .invoice-bottom-details h2 {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #414a4c;
+}
+
+.invoice-page
+  .invoice-bottom
+  .invoice-bottom-details
+  table
+  tbody
+  tr
+  td:first-child {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #5a5a5a;
+  padding-bottom: 8px;
+  /* width: 90px; */
+}
+
+.invoice-page .invoice-bottom .invoice-bottom-details table tbody tr td {
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0%;
+  line-height: 100%;
+  padding-bottom: 8px;
+  color: #353839;
+}
+
+.invoice-page .invoice-bottom .invoice-notes {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #777777;
+}
+
+.invoice-page .invoice-bottom .invoice-notes .notes-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.invoice-page .invoice-bottom .invoice-notes .notes-table p {
+  margin: 4px 0;
+}
+
+.invoice-page .invoice-bottom .invoice-notes .notes-table hr {
+  border: none;
+  border-top: 2px solid #777;
+  margin: 10px 0;
+}
+
+.invoice-page
+  .invoice-bottom
+  .invoice-notes
+  .notes-table
+  .left-section
+  .qr-info {
+  margin-top: 10px;
+  border-collapse: collapse;
+}
+
+.invoice-page
+  .invoice-bottom
+  .invoice-notes
+  .notes-table
+  .left-section
+  .qr-info
+  td {
+  padding: 4px 8px;
+  vertical-align: middle;
+}
+
+.invoice-page
+  .invoice-bottom
+  .invoice-notes
+  .notes-table
+  .left-section
+  .qr-info
+  .qr-code {
+  width: 90px;
+  height: 90px;
+}
+
+.invoice-page
+  .invoice-bottom
+  .invoice-notes
+  .notes-table
+  .left-section
+  .qr-info
+  i {
+  margin-right: 6px;
+  color: #444;
+}
+
+.invoice-page .invoice-bottom .invoice-notes .notes-table .right-section {
+  text-align: right;
+}
+
+.invoice-page .invoice-bottom .invoice-notes .notes-table .right-section p {
+  font-weight: 400;
+  margin-bottom: 125px;
+  color: #414a4c;
+  font-size: 18px;
+}
+
+.invoice-page
+  .invoice-bottom
+  .invoice-notes
+  .notes-table
+  .right-section
+  .signatory {
+  display: inline-block;
+  position: relative;
+  padding-top: 8px;
+  min-width: 200px;
+  text-align: center;
+}
+
+.invoice-page
+  .invoice-bottom
+  .invoice-notes
+  .notes-table
+  .right-section
+  .signatory
+  span {
+  font-weight: 600;
+  font-size: 14px;
+  color: #414a4c;
+}
+
+.invoice-page
+  .invoice-bottom
+  .invoice-notes
+  .notes-table
+  .right-section
+  .signatory::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #777;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* ---------- Invoice CSS ---------- */
