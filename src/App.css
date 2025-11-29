@@ -154,7 +154,7 @@ input[type="number"] {
   text-align: left !important;
   /* padding: 5px !important; */
   font-size: 13px;
-  height: 0;
+  /* height: 0; */
 }
 
 /* Dates outside the current month (26–31 or 1–previous/next month) */
@@ -480,3 +480,10 @@ input[type="number"] {
 }
 
 /* ---------- Invoice CSS ---------- */
+
+/* Remove InputText focus border */
+.p-inputtext:enabled:focus {
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+

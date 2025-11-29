@@ -6,8 +6,11 @@ import {
   faArrowLeft,
   faArrowRight,
   faPlus,
+  faRemove,
+  faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Selector from "../../components/dropdown/CustomDropDown";
 
 const locales = {};
 const localizer = dateFnsLocalizer({
@@ -96,6 +99,7 @@ const BigCalendarPage = () => {
     {
       id: 2,
       title: "Project Deadline",
+      type: 2,
       start: new Date("2025-11-25T12:00:00"),
       end: new Date("2025-11-25T13:00:00"),
     },
@@ -112,6 +116,7 @@ const BigCalendarPage = () => {
   const openModalForEvent = (event) => {
     setSelectedEvent(event);
     setTitle(event.title);
+    setEventType(event.type);
     setStartDate(event.start.toISOString().split("T")[0]);
     setStartTime(event.start.toISOString().split("T")[1].substring(0, 5));
     setEndDate(event.end.toISOString().split("T")[0]);
@@ -133,6 +138,7 @@ const BigCalendarPage = () => {
     const newEvent = {
       id: selectedEvent ? selectedEvent.id : Date.now(),
       title,
+      type: selectedEvent ? selectedEvent.type : eventType,
       start: new Date(`${startDate}T${startTime}`),
       end: new Date(`${endDate}T${endTime}`),
     };
@@ -143,6 +149,41 @@ const BigCalendarPage = () => {
       setEvents([...events, newEvent]);
     }
     setModalOpen(false);
+  };
+
+  const [eventType, setEventType] = useState("");
+
+  const [dropDownList, setDropDownList] = useState([
+    { label: "Meeting", value: 1 },
+    { label: "Event", value: 2 },
+    { label: "Holidays", value: 3 },
+    { label: "Reminder", value: 4 },
+  ]);
+
+  const deleteEvent = () => {
+    if (selectedEvent) {
+      setEvents(events.filter((e) => e.id !== selectedEvent.id));
+    }
+    setTitle("");
+    setStartDate("");
+    setStartTime("");
+    setEndDate("");
+    setEndTime("");
+  };
+
+  const getEventColor = (type) => {
+    switch (type) {
+      case 1: // Meeting
+        return { bg: "#eff8ff", Text: "#195dd3", border: "#bee2ff" };
+      case 2: // Event
+        return { bg: "#fef6ee", Text: "#f5ad8bff", border: "#f9dbaf"};
+      case 3: // Holidays
+        return { bg: "#edfcf2", Text: "#087443", border: "#caf6da"};
+      case 4: // Reminder
+        return { bg: "#fafafa", Text: "#414651", border: "#d2d3d4ff"};
+      default:
+        return "#3B82F6";
+    }
   };
 
   return (
@@ -160,6 +201,18 @@ const BigCalendarPage = () => {
             onSelectEvent={openModalForEvent}
             onSelectSlot={openModalForSlot}
             components={{ toolbar: CustomToolbar }}
+            eventPropGetter={(event) => {
+              const colors = getEventColor(event?.type || 0);
+              return {
+                style: {
+                  backgroundColor: colors.bg,
+                  color: colors.Text,
+                  border: `1px solid ${colors.border}`,
+                  borderRadius: "6px",
+                  paddingLeft: "6px",
+                },
+              };
+            }}
           />
 
           {modalOpen && (
@@ -177,6 +230,29 @@ const BigCalendarPage = () => {
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
                         className="w-full p-2 border rounded-[5px] outline-none"
+                      />
+                    </div>
+                    <div className="cursor-pointer">
+                      <Selector
+                        value={selectedEvent ? selectedEvent.type : ""}
+                        options={dropDownList}
+                        onChange={(e) => {
+                          if (!selectedEvent) return;
+
+                          const updatedType = e.value; // numeric value
+                          setSelectedEvent({
+                            ...selectedEvent,
+                            type: updatedType,
+                          });
+
+                          setEvents((prev) =>
+                            prev.map((ev) =>
+                              ev.id === selectedEvent.id
+                                ? { ...ev, type: updatedType }
+                                : ev
+                            )
+                          );
+                        }}
                       />
                     </div>
                   </div>
@@ -227,16 +303,27 @@ const BigCalendarPage = () => {
                       />
                     </div>
                   </div>
-                  <div className="flex justify-end gap-2">
+                  <div className="flex justify-between gap-2">
                     <button
                       onClick={() => setModalOpen(false)}
                       className="secondary-btn"
                     >
                       Cancel
                     </button>
-                    <button onClick={handleSave} className="prm-btn">
-                      Save
-                    </button>
+                    <div className="flex gap-[10px] items-center">
+                      <button
+                        onClick={() => deleteEvent()}
+                        className="text-red-600 bg-red-50 rounded-full h-[30px] w-[30px]"
+                      >
+                        <FontAwesomeIcon
+                          icon={faTrash}
+                          className="text-[15px]"
+                        />
+                      </button>
+                      <button onClick={handleSave} className="prm-btn">
+                        Save
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
