@@ -57,11 +57,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
     }
   };
 
+
   return (
     <div
-      className={`hidden sidebar p-2.5 lg:border-r border-[#0000001f] bg-white max-lg:absolute top-[71.4] max-lg:z-10 max-lg:shadow-lg overflow-hidden overflow-y-auto duration-300 ${
-        sidebarOpen ? "md:w-[240px] w-full left-0" : "lg:w-[79px] w-0 -left-1/2"
-      }`}
+      className={`sidebar p-2.5 lg:border-r border-[#0000001f] bg-white max-lg:absolute top-[71.4] max-lg:z-10 max-lg:shadow-lg overflow-hidden overflow-y-auto duration-300 ${sidebarOpen ? "md:w-[240px] w-full left-0" : "lg:w-[79px] w-0 -left-1/2"
+        }`}
       style={{ height: "calc(100vh - 71.4px)" }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -99,9 +99,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             <FontAwesomeIcon icon={faGauge} />
           </span>
           <span
-            className={`sidebar-text text-[14px] font-medium ${
-              sidebarOpen ? "open" : "closed"
-            }`}
+            className={`sidebar-text text-[14px] font-medium ${sidebarOpen ? "open" : "closed"
+              }`}
           >
             Dashboard
           </span>
@@ -121,9 +120,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             <FontAwesomeIcon icon={faCalendar} />
           </span>
           <span
-            className={`sidebar-text text-[14px] font-medium ${
-              sidebarOpen ? "open" : "closed"
-            }`}
+            className={`sidebar-text text-[14px] font-medium ${sidebarOpen ? "open" : "closed"
+              }`}
           >
             Calender
           </span>
@@ -144,9 +142,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             <FontAwesomeIcon icon={faUsers} />
           </span>
           <span
-            className={`sidebar-text text-[14px] font-medium ${
-              sidebarOpen ? "open" : "closed"
-            }`}
+            className={`sidebar-text text-[14px] font-medium ${sidebarOpen ? "open" : "closed"
+              }`}
           >
             Clients
           </span>
@@ -167,9 +164,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             <FontAwesomeIcon icon={faFolderOpen} />
           </span>
           <span
-            className={`sidebar-text text-[14px] font-medium ${
-              sidebarOpen ? "open" : "closed"
-            }`}
+            className={`sidebar-text text-[14px] font-medium ${sidebarOpen ? "open" : "closed"
+              }`}
           >
             Project
           </span>
@@ -190,9 +186,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             <FontAwesomeIcon icon={faUserCircle} />
           </span>
           <span
-            className={`sidebar-text text-[14px] font-medium ${
-              sidebarOpen ? "open" : "closed"
-            }`}
+            className={`sidebar-text text-[14px] font-medium ${sidebarOpen ? "open" : "closed"
+              }`}
           >
             Profile
           </span>
@@ -213,9 +208,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             <FontAwesomeIcon icon={faTasks} />
           </span>
           <span
-            className={`sidebar-text text-[14px] font-medium ${
-              sidebarOpen ? "open" : "closed"
-            }`}
+            className={`sidebar-text text-[14px] font-medium ${sidebarOpen ? "open" : "closed"
+              }`}
           >
             Task
           </span>
@@ -236,9 +230,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             <FontAwesomeIcon icon={faFileInvoice} />
           </span>
           <span
-            className={`sidebar-text text-[14px] font-medium ${
-              sidebarOpen ? "open" : "closed"
-            }`}
+            className={`sidebar-text text-[14px] font-medium ${sidebarOpen ? "open" : "closed"
+              }`}
           >
             Invoice
           </span>
@@ -259,9 +252,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             <FontAwesomeIcon icon={faMoneyBillWave} />
           </span>
           <span
-            className={`sidebar-text text-[14px] font-medium ${
-              sidebarOpen ? "open" : "closed"
-            }`}
+            className={`sidebar-text text-[14px] font-medium ${sidebarOpen ? "open" : "closed"
+              }`}
           >
             Expenses
           </span>
@@ -282,9 +274,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
             <FontAwesomeIcon icon={faMoneyBillWave} />
           </span>
           <span
-            className={`sidebar-text text-[14px] font-medium ${
-              sidebarOpen ? "open" : "closed"
-            }`}
+            className={`sidebar-text text-[14px] font-medium ${sidebarOpen ? "open" : "closed"
+              }`}
           >
             Employee
           </span>
